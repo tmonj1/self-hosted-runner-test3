@@ -17,4 +17,5 @@ jobs:
       - name: merge PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test3 --merge feature/jenkins-ci2
+        run: gh pr review --repo https://github.com/tmonj1/self-hosted-runner-test3 --approve feature/jenkins-ci2 && \
+             gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test3 --merge feature/jenkins-ci2
