@@ -1,8 +1,9 @@
 name: Auto PR create
 
 on:
-  create:
-
+  push:
+    branches:    
+      - 'feature/jenkins-ci'
 jobs:
   create_pull_request:
     env:
