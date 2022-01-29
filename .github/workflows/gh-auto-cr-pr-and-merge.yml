@@ -1,0 +1,20 @@
+name: Auto create pr and merge
+
+on:
+  push:
+    branches:    
+      - 'feature/jenkins-ci2'
+jobs:
+  create_pull_request_and_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: create pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test --title autocommit -B main -H feature/jenkins-ci2 -b autocreatedpr
+      - name: merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test --merge feature/jenkins-ci2
