@@ -1,3 +1,9 @@
+name: Hello World
+
+on: 
+  workflow_dispatch:
+
+jobs:
   createPullRequestForStg:
     env:
       ENV: stg
