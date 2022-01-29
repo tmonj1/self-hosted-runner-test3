@@ -40,4 +40,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        run: gh pr merge ${{ steps.cpr.outputs.pull-request-url }} --merge
-        run: gh pr merge --merge https://github.com/tmonj1/self-hosted-runner-test/tree/feature/ci1
+        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test --merge feature/ci1
