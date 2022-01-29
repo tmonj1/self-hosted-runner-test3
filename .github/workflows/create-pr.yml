@@ -14,3 +14,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test --title autocommit -B main -H feature/jenkins-ci2 -b autocreatedpr
+      - name: merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test --merge feature/jenkins-ci2
