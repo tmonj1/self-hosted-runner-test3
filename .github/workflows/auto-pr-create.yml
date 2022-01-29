@@ -10,10 +10,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        ref: feature/jenkins-ci2
-      - name: Create Pull Request
-        id: createpr
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch: main
-          base: feature/jenkins-ci2
+      - name: create pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test --title autocommit -B main -H feature/jenkins-ci2 -b autocreatedpr
