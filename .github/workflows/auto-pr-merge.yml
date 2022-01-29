@@ -1,7 +1,11 @@
 name: Auto PR merge
 
-on: 
-  workflow_dispatch:
+on:
+  pull_request:
+    types:
+      - opened
+    branches:    
+      - 'feature/jenkins-ci'
 
 jobs:
   createPullRequestForStg:
