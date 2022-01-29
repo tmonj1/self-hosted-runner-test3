@@ -21,7 +21,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: feature/${{ env.ENV }}
+          branch: pr/${{ env.ENV }}
           base: main
           delete-branch: true
           title: |
