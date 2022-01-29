@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: change author and commiter
+        run: git config --global user.email tmj@gmail.com && git config --global  user.name tmj
       - name: create pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
