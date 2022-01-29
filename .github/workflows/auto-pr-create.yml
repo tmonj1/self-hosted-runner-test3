@@ -15,5 +15,5 @@ jobs:
         id: createpr
         uses: peter-evans/create-pull-request@v3
         with:
-          base: main
-          branch: feature/jenkins-ci2
+          branch: main
+          base: feature/jenkins-ci2
