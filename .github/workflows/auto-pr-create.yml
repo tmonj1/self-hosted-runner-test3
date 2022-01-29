@@ -13,5 +13,4 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: feature/jenkins-ci2
           base: main
