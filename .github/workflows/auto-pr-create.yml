@@ -14,4 +14,4 @@ jobs:
       - name: create PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr create --title "auto commit" -B main -H "feature/jenkins-ci" -b "auto created pr"
+        run: gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test --title "auto commit" -B main -H "feature/jenkins-ci" -b "auto created pr"
