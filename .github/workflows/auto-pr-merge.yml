@@ -4,14 +4,12 @@ on:
   pull_request:
     types:
       - opened
-#    branches:    
-#      - 'feature/jenkins-ci'
 
 jobs:
   createPullRequestForStg:
     env:
       ENV: stg
-    if:  startsWith(github.head_ref, 'feature/jenkins-ci')
+    if:  startsWith(github.head_ref, 'feature/jenkins-ci2')
     runs-on: ubuntu-latest
     steps:
 #      - uses: actions/checkout@v2
@@ -45,4 +43,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        run: gh pr merge ${{ steps.cpr.outputs.pull-request-url }} --merge
-        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test --merge feature/jenkins-ci
+        run: gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test --merge feature/jenkins-ci2
