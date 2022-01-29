@@ -11,7 +11,7 @@ jobs:
   createPullRequestForStg:
     env:
       ENV: stg
-    if:  startsWith(github.head_ref, 'feature/jenkins-c')
+    if:  startsWith(github.head_ref, 'feature/jenkins-ci')
     runs-on: ubuntu-latest
     steps:
 #      - uses: actions/checkout@v2
