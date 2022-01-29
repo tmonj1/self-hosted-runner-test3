@@ -1,4 +1,4 @@
-name: Hello World
+name: Auto PR merge
 
 on: 
   workflow_dispatch:
