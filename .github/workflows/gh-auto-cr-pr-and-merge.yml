@@ -14,11 +14,14 @@ jobs:
           persist-credentials: false
       - name: create pull request
         env:
-#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: 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
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test3 --title autocommit -B main -H feature/jenkins-ci2 -b autocreatedpr
       - name: merge PR
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # branch protectionが有効だと下記のコードは失敗する(自分で作ったPRは自分で承認できないため)
+        # またgit config でユーザーを変えようとしたがgh pr reviewを実行してみるとレビュー者は自分になっていて思ったとおりになっていない
+        # これは GH_TOKEN でユーザーを判別しているためと思われる
+        # GH_TOKEN には PAT を指定できるようなので、そこで他人のPATを使えそうだが試していない
         run: git config --local user.email tmj@gmail.com && git config --local user.name tmj && gh pr review --repo https://github.com/tmonj1/self-hosted-runner-test3 --approve feature/jenkins-ci2 && \
              gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test3 --merge feature/jenkins-ci2
