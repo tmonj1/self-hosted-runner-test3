@@ -17,6 +17,6 @@ jobs:
       - name: merge PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: git config --global user.email tmj@gmail.com && git config --global user.name tmj \
+        run: git config --global user.email tmj@gmail.com && git config --global user.name tmj && \
              gh pr review --repo https://github.com/tmonj1/self-hosted-runner-test3 --approve feature/jenkins-ci2 && \
              gh pr merge --repo https://github.com/tmonj1/self-hosted-runner-test3 --merge feature/jenkins-ci2
