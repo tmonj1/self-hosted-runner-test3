@@ -1,0 +1,27 @@
+name: Auto create pr and merge using self-hosted runner
+
+on:
+  push:
+    branches:    
+      - 'feature/b'
+jobs:
+  create_pull_request_and_merge:
+    runs-on: [self-hosted, linux]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: create pull request
+        id: cpr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_url=${{ gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test3 --title autocreatepr -B main -H feature/auto-pr-merge-test -b autocreatedpr }}
+          echo "::set-output name=pr_url::$pr_url"
+      - name: merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email tmj@gmail.com && git config --local user.name tmj
+          gh pr merge ${{ steps.cpr.outputs.pr_url }} -m --admin --repo https://github.com/tmonj1/self-hosted-runner-test3
