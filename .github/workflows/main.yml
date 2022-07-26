@@ -26,6 +26,6 @@ jobs:
 #        run: gh pr review --repo https://github.com/tmonj1/self-hosted-runner-test3 --approve feature/b
       - name: merge PR
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TMJ }}
         run: |
           gh pr merge ${{ steps.cpr.outputs.pr_url }} -m --admin --repo https://github.com/tmonj1/self-hosted-runner-test3
