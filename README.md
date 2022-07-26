@@ -66,3 +66,6 @@ Configuring
 Current runner version: '2.294.0'
 2022-07-26 12:30:22Z: Listening for Jobs
 ```
+
+## Actions examples
+
