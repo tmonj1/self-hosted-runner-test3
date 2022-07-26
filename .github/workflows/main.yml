@@ -17,7 +17,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pr_url=${{ gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test3 --title autocreatepr -B main -H feature/auto-pr-merge-test -b autocreatedpr }}
+          pr_url=$( gh pr create --repo https://github.com/tmonj1/self-hosted-runner-test3 --title autocreatepr -B main -H feature/b -b autocreatedpr )
           echo "::set-output name=pr_url::$pr_url"
       - name: merge PR
         env:
