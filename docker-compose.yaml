@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  my_runner:
+    restart: unless-stopped
+    image: myoung34/github-runner
+    container_name: ghr
+    environment:
+      RUNNER_NAME: my-runner
+      RUNNER_SCOPE: repo
+      REPO_URL: https://github.com/tmonj1/self-hosted-runner-test3
+      LABELS: my-runner
+      ACCESS_TOKEN: ${GITHUB_ACTIONS_PAT}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
